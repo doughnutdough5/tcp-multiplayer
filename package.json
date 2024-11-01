@@ -1,0 +1,18 @@
+{
+  "name": "tcp-multiplayer",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "migrate": "node src/db/migration/createSchema.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "lodash": "^4.17.21",
+    "mysql2": "^3.11.3",
+    "protobufjs": "^7.4.0",
+    "uuid": "^11.0.2"
+  }
+}

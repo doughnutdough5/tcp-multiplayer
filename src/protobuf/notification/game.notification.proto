@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package gameNotification;
+
+message LocationUpdate {
+    // proto3의 문법으로 그냥 UserLocation의 배열을 패킷으로 구성한다 생각하면 됨
+    repeated UserLocation users = 1;
+
+    message UserLocation {
+        string id = 1;
+        uint32 playerId = 2;
+        float x = 3;
+        float y = 4;
+    }
+}

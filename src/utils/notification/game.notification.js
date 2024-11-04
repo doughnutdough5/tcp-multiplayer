@@ -18,6 +18,17 @@ const serializer = (message, type) => {
   return Buffer.concat([packetLength, packetType, message]);
 };
 
+export const createPingPacket = (timestamp) => {
+  const protoMessages = getProtoMessages();
+  const location = protoMessages.common.Ping;
+
+  const payload = { timestamp };
+  const message = location.create(payload);
+  const pingPacket = location.encode(message).finish();
+
+  return serializer(pingPacket, PACKET_TYPE.PING);
+};
+
 export const createLocationPacket = (users) => {
   const protoMessages = getProtoMessages();
   const location = protoMessages.gameNotification.LocationUpdate;
